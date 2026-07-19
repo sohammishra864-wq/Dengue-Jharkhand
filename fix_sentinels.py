@@ -19,12 +19,12 @@ FILES = [
     "jhk_static_features.csv",
 ]
 
-print("\n══ SENTINEL VALUE FIXER ══\n")
+print("\nSENTINEL VALUE FIXER \n")
 
 for fname in FILES:
     path = os.path.join(RAW, fname)
     if not os.path.exists(path):
-        print(f"  ⚠  Not found: {fname}")
+        print(f"  Not found: {fname}")
         continue
 
     df = pd.read_csv(path)
@@ -37,13 +37,13 @@ for fname in FILES:
         if n > 0:
             df.loc[mask, col] = np.nan
             total_fixed += n
-            print(f"  ✓ {fname} | {col}: replaced {n} sentinel values with NaN")
+            print(f" {fname} | {col}: replaced {n} sentinel values with NaN")
 
     if total_fixed > 0:
         shutil.copy(path, os.path.join(BACKUP, fname))
         df.to_csv(path, index=False)
-        print(f"    → Saved (original backed up to data/raw/backup/)")
+        print(f"  → Saved (original backed up to data/raw/backup/)")
     else:
-        print(f"  ✓ {fname}: no sentinel values found")
+        print(f" {fname}: no sentinel values found")
 
 print("\n  Done. Re-run premerge_qc.py to verify all sentinels fixed.")

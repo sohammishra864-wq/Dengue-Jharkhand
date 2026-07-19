@@ -15,7 +15,7 @@ def print_missing(df, col):
     pct = (miss / len(df)) * 100
 
     print(
-        f"    Missing: {miss} rows ({pct:.1f}%)"
+        f"  Missing: {miss} rows ({pct:.1f}%)"
     )
 
 def assert_no_row_explosion(before_rows, after_rows, step_name):
@@ -24,15 +24,13 @@ def assert_no_row_explosion(before_rows, after_rows, step_name):
         f"Before={before_rows}, After={after_rows}"
 
 def summarize_merge(df, step_name):
-    print(f"\n  ✓ {step_name} complete")
-    print(f"    Shape: {df.shape}")
-    print(f"    Districts: {df['District'].nunique()}")
+    print(f"\n   {step_name} complete")
+    print(f"  Shape: {df.shape}")
+    print(f"  Districts: {df['District'].nunique()}")
 
 
-print("\n════════════════════════════════════════════════════")
-print("  MERGING ENVIRONMENTAL FEATURES")
-print("════════════════════════════════════════════════════")
-
+print("\n")
+print("MERGING ENVIRONMENTAL FEATURES")
 sat_path = os.path.join(RAW, "satellite_climate_district.csv")
 
 sat = pd.read_csv(sat_path)
@@ -41,13 +39,13 @@ sat = sat.drop_duplicates(
     subset=["District", "Year", "Month"]
 )
 
-print(f"\n✓ Base satellite dataset loaded")
-print(f"  Shape: {sat.shape}")
-print(f"  Districts: {sat['District'].nunique()}")
-print(f"  Years: {sat['Year'].min()}–{sat['Year'].max()}")
+print(f"\n Base satellite dataset loaded")
+print(f"Shape: {sat.shape}")
+print(f"Districts: {sat['District'].nunique()}")
+print(f"Years: {sat['Year'].min()}–{sat['Year'].max()}")
 
 
-print("\n────────────────────────────────────────────────────")
+print()
 print("Merging Night LST")
 
 night = pd.read_csv(
@@ -84,7 +82,7 @@ summarize_merge(sat, "Night LST merge")
 print_missing(sat, "LST_Night_C")
 
 
-print("\n────────────────────────────────────────────────────")
+print()
 print("Merging JRC Monthly Water")
 
 jrc_m = pd.read_csv(
@@ -125,7 +123,7 @@ summarize_merge(sat, "JRC Monthly Water merge")
 print_missing(sat, "Water_pct_monthly")
 
 
-print("\n────────────────────────────────────────────────────")
+print()
 print("Merging JRC Static Water")
 
 jrc_s = pd.read_csv(
@@ -155,7 +153,7 @@ assert_no_row_explosion(
 summarize_merge(sat, "JRC Static Water merge")
 
 
-print("\n────────────────────────────────────────────────────")
+print()
 print("Merging SMAP Soil Moisture")
 
 smap = pd.read_csv(
@@ -196,7 +194,7 @@ summarize_merge(sat, "SMAP merge")
 print_missing(sat, "SoilMoist_m3m3")
 
 
-print("\n────────────────────────────────────────────────────")
+print()
 print("Merging Nightlights")
 
 nl = pd.read_csv(
@@ -234,7 +232,7 @@ summarize_merge(sat, "Nightlights merge")
 print_missing(sat, "Nightlights")
 
 
-print("\n────────────────────────────────────────────────────")
+print()
 print("Merging Static Features")
 
 static = pd.read_csv(
@@ -276,7 +274,7 @@ assert_no_row_explosion(
 summarize_merge(sat, "Static Features merge")
 
 
-print("\n────────────────────────────────────────────────────")
+print()
 print("Checking Hospital Count")
 
 hosp_path = os.path.join(
@@ -311,10 +309,10 @@ if os.path.exists(hosp_path):
     summarize_merge(sat, "Hospital merge")
 
 else:
-    print("  ⚠ Hospital dataset not found — skipping")
+    print(" Hospital dataset not found — skipping")
 
 
-print("\n────────────────────────────────────────────────────")
+print()
 print("Final sorting and cleaning")
 
 sat = sat.sort_values(
@@ -330,33 +328,31 @@ out = os.path.join(
 sat.to_csv(out, index=False)
 
 
-print("\n════════════════════════════════════════════════════")
-print("  MASTER FEATURE DATASET CREATED")
-print("════════════════════════════════════════════════════")
+print("\n")
+print("MASTER FEATURE DATASET CREATED")
+print(f"\n Saved:")
+print(f"{out}")
 
-print(f"\n✓ Saved:")
-print(f"  {out}")
+print(f"\n Final shape:")
+print(f"{sat.shape[0]} rows × {sat.shape[1]} columns")
 
-print(f"\n✓ Final shape:")
-print(f"  {sat.shape[0]} rows × {sat.shape[1]} columns")
+print(f"\n Districts:")
+print(f"{sat['District'].nunique()}")
 
-print(f"\n✓ Districts:")
-print(f"  {sat['District'].nunique()}")
+print(f"\n Year range:")
+print(f"{sat['Year'].min()}–{sat['Year'].max()}")
 
-print(f"\n✓ Year range:")
-print(f"  {sat['Year'].min()}–{sat['Year'].max()}")
-
-print(f"\n✓ Columns ({len(sat.columns)}):")
+print(f"\n Columns ({len(sat.columns)}):")
 
 for c in sat.columns:
     miss = sat[c].isna().sum()
     pct = (miss / len(sat)) * 100
 
     print(
-        f"  {c:<28} "
+        f"{c:<28} "
         f"missing={miss:<6} "
         f"({pct:5.1f}%)"
     )
 
-print("\n✓ Merge pipeline completed successfully")
-print("✓ Ready for POST-MERGE TEMPORAL QC")
+print("\n Merge pipeline completed successfully")
+print(" Ready for POST-MERGE TEMPORAL QC")

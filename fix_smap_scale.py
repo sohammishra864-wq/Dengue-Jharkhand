@@ -9,14 +9,14 @@ path = os.path.join(
 
 df = pd.read_csv(path)
 
-print("\n══ BEFORE SCALING ══")
+print("\nBEFORE SCALING ")
 print(df["mean"].describe())
 
 df["mean"] = df["mean"] / 100
 
-print("\n══ AFTER SCALING ══")
+print("\nAFTER SCALING ")
 print(df["mean"].describe())
 
 df.to_csv(path, index=False)
 
-print("\n✓ SMAP scaling corrected and saved")
+print("\n SMAP scaling corrected and saved")

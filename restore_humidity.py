@@ -38,4 +38,4 @@ merged.to_csv(
     index=False
 )
 
-print("\n✓ Humidity restored")
+print("\n Humidity restored")

@@ -26,16 +26,16 @@ OUT_DIR    = os.path.join("outputs", "exploratory_analysis")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 PAL = {
-    "navy"   : "#0B1F3A",
-    "teal"   : "#0D9488",
-    "amber"  : "#F59E0B",
-    "coral"  : "#EF4444",
-    "green"  : "#16A34A",
+    "navy" : "#0B1F3A",
+    "teal" : "#0D9488",
+    "amber": "#F59E0B",
+    "coral": "#EF4444",
+    "green": "#16A34A",
     "purple" : "#7C3AED",
-    "slate"  : "#475569",
-    "gold"   : "#D97706",
-    "sky"    : "#0EA5E9",
-    "rose"   : "#F43F5E",
+    "slate": "#475569",
+    "gold" : "#D97706",
+    "sky"  : "#0EA5E9",
+    "rose" : "#F43F5E",
 }
 
 DISTRICT_COLORS = [
@@ -65,7 +65,7 @@ def save(fig, name, dpi=150):
     fig.savefig(path, dpi=dpi, bbox_inches="tight",
                 facecolor=fig.get_facecolor())
     plt.close(fig)
-    print(f"  ✓  Saved: {name}")
+    print(f"  Saved: {name}")
     return path
 
 
@@ -108,20 +108,18 @@ def sens_slope(x, years):
     return np.median(slopes) if slopes else np.nan
 
 
-print("\n" + "═" * 65)
-print("  JHARKHAND DENGUE — EXPLORATORY ANALYSIS")
-print(f"  Started: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
-print("═" * 65)
+print("\nJHARKHAND DENGUE — EXPLORATORY ANALYSIS")
+print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
 if not os.path.exists(INPUT_FILE):
-    print(f"  ✗  Input not found: {INPUT_FILE}")
+    print(f"  Input not found: {INPUT_FILE}")
     sys.exit(1)
 
 df = pd.read_csv(INPUT_FILE)
-print(f"\n  ✓  Loaded: {df.shape[0]} rows × {df.shape[1]} cols")
-print(f"     Districts : {df['District'].nunique()}")
-print(f"     Years     : {df['Year'].min()}–{df['Year'].max()}")
-print(f"     Columns   : {list(df.columns[:8])} ...")
+print(f"\n    Loaded: {df.shape[0]} rows × {df.shape[1]} cols")
+print(f"   Districts : {df['District'].nunique()}")
+print(f"   Years     : {df['Year'].min()}–{df['Year'].max()}")
+print(f"   Columns   : {list(df.columns[:8])} ...")
 
 DISTRICTS = sorted(df["District"].unique())
 YEARS     = sorted(df["Year"].unique())
@@ -132,7 +130,7 @@ CLIMATE_COLS = [c for c in [
     "Nightlights", "Elevation_m", "Forest_pct", "Cropland_pct"
 ] if c in df.columns]
 
-print(f"     Climate cols available: {CLIMATE_COLS}")
+print(f"   Climate cols available: {CLIMATE_COLS}")
 
 
 print("\n[01/12] District climate profiles...")
@@ -916,35 +914,27 @@ if len(radar_cols) >= 4:
     save(fig, "12_district_fingerprints.png")
 
 
-print(f"\n{'═' * 65}")
-print("  EXPLORATORY ANALYSIS COMPLETE")
-print(f"  Output folder: {OUT_DIR}")
-print(f"{'═' * 65}")
-print("  Figures generated:")
+print("\nEXPLORATORY ANALYSIS COMPLETE")
+print(f"Output folder: {OUT_DIR}")
+print("Figures generated:")
 figs = [f for f in sorted(os.listdir(OUT_DIR)) if f.endswith(".png")]
 csvs = [f for f in sorted(os.listdir(OUT_DIR)) if f.endswith(".csv")]
 for f in figs:
-    print(f"    {f}")
-print(f"\n  Supporting CSVs ({len(csvs)}):")
+    print(f"  {f}")
+print(f"\nSupporting CSVs ({len(csvs)}):")
 for f in csvs:
-    print(f"    {f}")
-print(f"\n  Total outputs: {len(figs)} figures + {len(csvs)} data files")
-print(f"\n  NEXT STEPS:")
-print("    1. Review figures — identify 4-5 strongest for the paper")
-print("    2. When RTI data arrives — run dengue_qc.py")
-print("    3. Then risk_label_framework.py — create LOW/MOD/HIGH labels")
-print("    4. Then modeling_pipeline.py — XGBoost risk classifier")
-print(f"{'═' * 65}\n")
+    print(f"  {f}")
+print(f"\nTotal outputs: {len(figs)} figures + {len(csvs)} data files")
 
 summary = {
-    "n_districts"    : df["District"].nunique(),
-    "year_range"     : f"{df['Year'].min()}–{df['Year'].max()}",
-    "n_rows"         : len(df),
-    "n_columns"      : df.shape[1],
-    "n_figures"      : len(figs),
-    "n_csv_outputs"  : len(csvs),
-    "climate_cols"   : ", ".join(CLIMATE_COLS),
-    "generated_at"   : datetime.now().strftime("%Y-%m-%d %H:%M"),
+    "n_districts"  : df["District"].nunique(),
+    "year_range"   : f"{df['Year'].min()}–{df['Year'].max()}",
+    "n_rows"       : len(df),
+    "n_columns"    : df.shape[1],
+    "n_figures"    : len(figs),
+    "n_csv_outputs": len(csvs),
+    "climate_cols" : ", ".join(CLIMATE_COLS),
+    "generated_at" : datetime.now().strftime("%Y-%m-%d %H:%M"),
 }
 pd.DataFrame([summary]).T.to_csv(
     os.path.join(OUT_DIR, "00_analysis_summary.csv"), header=False)

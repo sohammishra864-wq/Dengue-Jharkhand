@@ -7,10 +7,8 @@ INPUT = os.path.join(
     "master_features_engineered.csv"
 )
 
-print("\n════════════════════════════════════════════")
+print("\n")
 print(" ENGINEERED FEATURE QC")
-print("════════════════════════════════════════════")
-
 df = pd.read_csv(INPUT)
 
 print(f"\nShape: {df.shape}")
@@ -32,7 +30,7 @@ for c in lag_cols:
 
     miss = df[c].isna().sum()
 
-    print(f"  {c:<35} missing={miss}")
+    print(f"{c:<35} missing={miss}")
 
 print("\nRolling feature validation:")
 
@@ -45,7 +43,7 @@ for c in roll_cols:
 
     miss = df[c].isna().sum()
 
-    print(f"  {c:<35} missing={miss}")
+    print(f"{c:<35} missing={miss}")
 
 print("\nSeasonal feature validation:")
 
@@ -59,7 +57,7 @@ season_cols = [
 for c in season_cols:
 
     print(
-        f"  {c:<20} "
+        f"{c:<20} "
         f"min={df[c].min():.2f} "
         f"max={df[c].max():.2f}"
     )
@@ -74,7 +72,7 @@ z_cols = [
 for c in z_cols:
 
     print(
-        f"  {c:<30} "
+        f"{c:<30} "
         f"mean={df[c].mean():.2f} "
         f"std={df[c].std():.2f}"
     )
@@ -91,6 +89,5 @@ with open(summary_path, "w", encoding="utf-8") as f:
     f.write(f"Duplicates: {dups}\n")
     f.write(f"Columns: {len(df.columns)}\n")
 
-print("\n════════════════════════════════════════════")
+print("\n")
 print(" ENGINEERED QC COMPLETE")
-print("════════════════════════════════════════════")

@@ -6,14 +6,12 @@ import sys
 def run(script):
     print("\n" + "=" * 80)
     print(f"RUNNING: {script}")
-    print("=" * 80)
-
     result = subprocess.run(
         [sys.executable, script],
         check=True
     )
 
-    print(f"✓ COMPLETED: {script}")
+    print(f" COMPLETED: {script}")
 
 
 if __name__ == "__main__":

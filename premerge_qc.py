@@ -15,45 +15,43 @@ def log(line="", color=None):
 
 def section(title):
     log()
-    log("═" * 65)
-    log(f"  {title}")
-    log("═" * 65)
+    log(f"{title}")
 
-def ok(msg):   log(f"  ✓  {msg}")
-def warn(msg): log(f"  ⚠  {msg}")
-def fail(msg): log(f"  ✗  {msg}")
+def ok(msg):   log(f"  {msg}")
+def warn(msg): log(f"  {msg}")
+def fail(msg): log(f"  {msg}")
 
 
 CANONICAL_DISTRICTS = {
     
     
     "Simdega": ["Simdega"],
-    "East Singhbhum"     : ["East Singhbhum","Purbi Singhbhum","East_Singhbhum",
+    "East Singhbhum"   : ["East Singhbhum","Purbi Singhbhum","East_Singhbhum",
                              "Purbi_Singhbhum","PurbiSinghbhum","EastSinghbhum","Purba Singhbhum"],
-    "West Singhbhum"     : ["West Singhbhum","Pashchimi Singhbhum","West_Singhbhum",
+    "West Singhbhum"   : ["West Singhbhum","Pashchimi Singhbhum","West_Singhbhum",
                              "Pashchimi_Singhbhum","PashchimSinghbhum","Pashchim Singhbhum"],
     "Seraikela Kharsawan": ["Saraikela Kharsawan","Saraikela-Kharsawan",
                              "Seraikela Kharsawan","Seraikela_Kharsawan",
                              "Saraikela_Kharsawan"],
-    "Ranchi"             : ["Ranchi"],
-    "Dhanbad"            : ["Dhanbad"],
-    "Bokaro"             : ["Bokaro"],
-    "Dumka"              : ["Dumka"],
-    "Hazaribagh"         : ["Hazaribagh","Hazaribag"],
-    "Deoghar"            : ["Deoghar"],
-    "Giridih"            : ["Giridih"],
-    "Pakur"              : ["Pakur"],
-    "Sahibganj"          : ["Sahibganj","Sahebganj","Sahib Ganj"],
-    "Chatra"             : ["Chatra"],
-    "Lohardaga"          : ["Lohardaga"],
-    "Godda"              : ["Godda"],
-    "Gumla"              : ["Gumla"],
-    "Latehar"            : ["Latehar"],
-    "Palamu"             : ["Palamu","Palamau"],
-    "Ramgarh"            : ["Ramgarh"],
-    "Jamtara"            : ["Jamtara"],
-    "Garhwa"             : ["Garhwa"],
-    "Koderma"            : ["Koderma"],
+    "Ranchi"           : ["Ranchi"],
+    "Dhanbad"          : ["Dhanbad"],
+    "Bokaro"           : ["Bokaro"],
+    "Dumka"            : ["Dumka"],
+    "Hazaribagh"       : ["Hazaribagh","Hazaribag"],
+    "Deoghar"          : ["Deoghar"],
+    "Giridih"          : ["Giridih"],
+    "Pakur"            : ["Pakur"],
+    "Sahibganj"        : ["Sahibganj","Sahebganj","Sahib Ganj"],
+    "Chatra"           : ["Chatra"],
+    "Lohardaga"        : ["Lohardaga"],
+    "Godda"            : ["Godda"],
+    "Gumla"            : ["Gumla"],
+    "Latehar"          : ["Latehar"],
+    "Palamu"           : ["Palamu","Palamau"],
+    "Ramgarh"          : ["Ramgarh"],
+    "Jamtara"          : ["Jamtara"],
+    "Garhwa"           : ["Garhwa"],
+    "Koderma"          : ["Koderma"],
 }
 
 ALIAS_TO_CANONICAL = {}
@@ -76,24 +74,24 @@ def harmonize_districts(df):
 
 
 RANGES = {
-    "LST_C"           : (-5, 55),
-    "LST_Night_C"     : (-5, 45),
-    "Rainfall_mm"     : (0, 1500),
-    "Humidity_pct"    : (0, 100),
-    "NDVI"            : (-0.2, 1.0),
-    "mean"            : (-999.1, 9999),
-    "SoilMoist_m3m3"  : (0.0, 0.60),
-    "Nightlights"     : (0, 500),
-    "Elevation_m"     : (0, 2500),
-    "Slope_deg"       : (0, 45),
-    "Forest_pct"      : (0, 100),
-    "Cropland_pct"    : (0, 100),
-    "Builtup_pct"     : (0, 100),
-    "Pop_density"     : (0, 20000),
-    "Water_pct"       : (0, 100),
-    "Perm_Water_pct"  : (0, 100),
-    "Seas_Water_pct"  : (0, 100),
-    "Nightlights"     : (0, 500),
+    "LST_C"         : (-5, 55),
+    "LST_Night_C"   : (-5, 45),
+    "Rainfall_mm"   : (0, 1500),
+    "Humidity_pct"  : (0, 100),
+    "NDVI"          : (-0.2, 1.0),
+    "mean"          : (-999.1, 9999),
+    "SoilMoist_m3m3": (0.0, 0.60),
+    "Nightlights"   : (0, 500),
+    "Elevation_m"   : (0, 2500),
+    "Slope_deg"     : (0, 45),
+    "Forest_pct"    : (0, 100),
+    "Cropland_pct"  : (0, 100),
+    "Builtup_pct"   : (0, 100),
+    "Pop_density"   : (0, 20000),
+    "Water_pct"     : (0, 100),
+    "Perm_Water_pct": (0, 100),
+    "Seas_Water_pct": (0, 100),
+    "Nightlights"   : (0, 500),
 }
 
 INVALID_SENTINELS = [-999, -9999, -9998, 999999]
@@ -101,58 +99,58 @@ INVALID_SENTINELS = [-999, -9999, -9998, 999999]
 
 DATASETS = [
     {
-        "key"        : "satellite",
-        "file"       : "satellite_climate_district.csv",
-        "temporal"   : True,
+        "key"      : "satellite",
+        "file"     : "satellite_climate_district.csv",
+        "temporal" : True,
         "expected_cols": ["District","Year","Month","LST_C","Rainfall_mm","NDVI","Humidity_pct"],
-        "desc"       : "Base satellite climate (MODIS+CHIRPS+ERA5+NDVI)",
+        "desc"     : "Base satellite climate (MODIS+CHIRPS+ERA5+NDVI)",
     },
     {
-        "key"        : "night_lst",
-        "file"       : "jhk_night_lst_2010_2023.csv",
-        "temporal"   : True,
+        "key"      : "night_lst",
+        "file"     : "jhk_night_lst_2010_2023.csv",
+        "temporal" : True,
         "expected_cols": ["District","year","month","mean"],
-        "rename"     : {"year":"Year","month":"Month","mean":"LST_Night_C"},
-        "desc"       : "Night LST (MODIS MOD11A2)",
+        "rename"   : {"year":"Year","month":"Month","mean":"LST_Night_C"},
+        "desc"     : "Night LST (MODIS MOD11A2)",
     },
     {
-        "key"        : "jrc_monthly",
-        "file"       : "jhk_jrc_monthly_water_2010_2023.csv",
-        "temporal"   : True,
+        "key"      : "jrc_monthly",
+        "file"     : "jhk_jrc_monthly_water_2010_2023.csv",
+        "temporal" : True,
         "expected_cols": ["District","year","month","mean"],
-        "rename"     : {"year":"Year","month":"Month","mean":"Water_pct"},
-        "desc"       : "JRC monthly water presence",
+        "rename"   : {"year":"Year","month":"Month","mean":"Water_pct"},
+        "desc"     : "JRC monthly water presence",
     },
     {
-        "key"        : "jrc_static",
-        "file"       : "jhk_jrc_static_occurrence.csv",
-        "temporal"   : False,
+        "key"      : "jrc_static",
+        "file"     : "jhk_jrc_static_occurrence.csv",
+        "temporal" : False,
         "expected_cols": ["District","Perm_Water_pct","Seas_Water_pct"],
-        "desc"       : "JRC permanent + seasonal water %",
+        "desc"     : "JRC permanent + seasonal water %",
     },
     {
-        "key"        : "smap",
-        "file"       : "jhk_smap_2015_2023.csv",
-        "temporal"   : True,
+        "key"      : "smap",
+        "file"     : "jhk_smap_2015_2023.csv",
+        "temporal" : True,
         "expected_cols": ["District","year","month","mean"],
-        "rename"     : {"year":"Year","month":"Month","mean":"SoilMoist_m3m3"},
-        "desc"       : "SMAP soil moisture (Apr 2015 onwards)",
+        "rename"   : {"year":"Year","month":"Month","mean":"SoilMoist_m3m3"},
+        "desc"     : "SMAP soil moisture (Apr 2015 onwards)",
     },
     {
-        "key"        : "nightlights",
-        "file"       : "jhk_nightlights_2012_2023.csv",
-        "temporal"   : True,
-        "time_res"   : "annual",
+        "key"      : "nightlights",
+        "file"     : "jhk_nightlights_2012_2023.csv",
+        "temporal" : True,
+        "time_res" : "annual",
         "expected_cols": ["District","year","mean"],
-        "rename"     : {"year":"Year","mean":"Nightlights"},
-        "desc"       : "VIIRS nighttime lights (2012 onwards)",
+        "rename"   : {"year":"Year","mean":"Nightlights"},
+        "desc"     : "VIIRS nighttime lights (2012 onwards)",
     },
     {
-        "key"        : "static",
-        "file"       : "jhk_static_features.csv",
-        "temporal"   : False,
+        "key"      : "static",
+        "file"     : "jhk_static_features.csv",
+        "temporal" : False,
         "expected_cols": ["District","Elevation_m","Slope_deg","Pop_density"],
-        "desc"       : "Static terrain + LULC + population",
+        "desc"     : "Static terrain + LULC + population",
     },
 ]
 
@@ -168,9 +166,9 @@ def check_shapes(loaded):
 
         df   = loaded[key]
         log(f"\n  [{key}] {desc}")
-        log(f"    File  : {d['file']}")
-        log(f"    Shape : {df.shape[0]} rows × {df.shape[1]} cols")
-        log(f"    Cols  : {list(df.columns)}")
+        log(f"  File  : {d['file']}")
+        log(f"  Shape : {df.shape[0]} rows × {df.shape[1]} cols")
+        log(f"  Cols  : {list(df.columns)}")
 
         missing_expected = [c for c in d["expected_cols"] if c not in df.columns]
         if missing_expected:
@@ -204,7 +202,7 @@ def check_districts(loaded):
                 mapping_records.append({"Dataset":key,"Raw":name,"Canonical":"UNMAPPED","Status":"UNMAPPED"})
 
         n_valid = sum(1 for n in raw_names if ALIAS_TO_CANONICAL.get(n) in VALID_DISTRICTS)
-        log(f"    Valid districts: {n_valid} / {len(raw_names)}")
+        log(f"  Valid districts: {n_valid} / {len(raw_names)}")
         if n_valid == len(raw_names):
             ok(f"All district names mappable")
 
@@ -272,10 +270,10 @@ def check_missing(loaded):
             miss_pct = n_total_miss / n_total * 100
 
             miss_records.append({
-                "Dataset"     : key,
-                "Column"      : col,
-                "Total_rows"  : n_total,
-                "NaN_count"   : n_nan,
+                "Dataset"   : key,
+                "Column"    : col,
+                "Total_rows": n_total,
+                "NaN_count" : n_nan,
                 "Sentinel_count": n_sent,
                 "Total_missing": n_total_miss,
                 "Missing_pct" : round(miss_pct, 1),
@@ -290,7 +288,7 @@ def check_missing(loaded):
             elif miss_pct > 50:
                 warn(f"{col}: {miss_pct:.1f}% missing — check if expected")
             elif miss_pct > 0:
-                log(f"    {col:<25} {miss_pct:5.1f}% missing  (NaN={n_nan}, sentinel={n_sent})")
+                log(f"  {col:<25} {miss_pct:5.1f}% missing  (NaN={n_nan}, sentinel={n_sent})")
             else:
                 ok(f"{col}: complete (0% missing)")
 
@@ -358,7 +356,7 @@ def check_temporal(loaded):
         if "rename" in d:
             df = df.rename(columns=d["rename"])
 
-        year_col  = "Year"  if "Year"  in df.columns else "year"
+        year_col  = "Year"if "Year"in df.columns else "year"
         month_col = "Month" if "Month" in df.columns else "month"
 
         if "District" not in df.columns: continue
@@ -371,7 +369,7 @@ def check_temporal(loaded):
         log(f"\n  [{key}]")
         yr_min = int(df[year_col].min())
         yr_max = int(df[year_col].max())
-        log(f"    Year range: {yr_min}–{yr_max}")
+        log(f"  Year range: {yr_min}–{yr_max}")
 
         districts = df["District"].str.strip().unique()
         expected  = pd.MultiIndex.from_product(
@@ -414,7 +412,7 @@ def check_spatial(loaded):
     numeric_cols = [c for c in numeric_cols if c in df.columns]
 
     log(f"\n  Checking spatial variation across districts...")
-    log(f"  (Ranchi and Palamu should look different — if they don't, data is suspect)")
+    log(f"(Ranchi and Palamu should look different — if they don't, data is suspect)")
 
     for col in numeric_cols:
         district_means = df.groupby("District")[col].mean().dropna()
@@ -429,15 +427,13 @@ def check_spatial(loaded):
 
         top3    = district_means.nlargest(3)
         bottom3 = district_means.nsmallest(3)
-        log(f"    Highest: {dict(zip(top3.index, top3.round(2).values))}")
-        log(f"    Lowest:  {dict(zip(bottom3.index, bottom3.round(2).values))}")
+        log(f"  Highest: {dict(zip(top3.index, top3.round(2).values))}")
+        log(f"  Lowest:  {dict(zip(bottom3.index, bottom3.round(2).values))}")
 
 
 def run_qc():
-    log("═" * 65)
-    log(f"  JHARKHAND DENGUE — PRE-MERGE QC REPORT")
-    log(f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
-    log("═" * 65)
+    log(f"JHARKHAND DENGUE — PRE-MERGE QC REPORT")
+    log(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
     section("LOADING DATASETS")
     loaded = {}
@@ -460,18 +456,18 @@ def run_qc():
 
     section("QC SUMMARY — ACTION ITEMS")
 
-    issues = [l for l in REPORT_LINES if l.strip().startswith("✗")]
-    warnings = [l for l in REPORT_LINES if l.strip().startswith("⚠")]
+    issues = [l for l in REPORT_LINES if l.strip().startswith("")]
+    warnings = [l for l in REPORT_LINES if l.strip().startswith("")]
 
     if issues:
         log(f"\n  MUST FIX before merging ({len(issues)} issues):")
-        for i in issues: log(f"    {i.strip()}")
+        for i in issues: log(f"  {i.strip()}")
     else:
         ok("No critical issues found")
 
     if warnings:
         log(f"\n  REVIEW before merging ({len(warnings)} warnings):")
-        for w in warnings: log(f"    {w.strip()}")
+        for w in warnings: log(f"  {w.strip()}")
 
     if not issues and not warnings:
         ok("ALL CHECKS PASSED — safe to run merge_extended_features.py")
@@ -487,7 +483,7 @@ def run_qc():
 if __name__ == "__main__":
     passed = run_qc()
     if passed:
-        print("\n  ✓ QC PASSED — run merge_extended_features.py next")
+        print("\n   QC PASSED — run merge_extended_features.py next")
     else:
-        print("\n  ✗ QC FAILED — fix issues above before merging")
+        print("\n   QC FAILED — fix issues above before merging")
         sys.exit(1)

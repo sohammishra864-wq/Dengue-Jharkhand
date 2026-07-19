@@ -15,10 +15,8 @@ QC_OUT = os.path.join(
 
 os.makedirs(QC_OUT, exist_ok=True)
 
-print("\n════════════════════════════════════════════")
+print("\n")
 print(" POST-MERGE QC")
-print("════════════════════════════════════════════")
-
 df = pd.read_csv(MASTER)
 
 
@@ -31,16 +29,16 @@ dups = df.duplicated(
     subset=["District", "Year", "Month"]
 ).sum()
 
-print("\n────────────────────────────────────────")
+print()
 print("DUPLICATE CHECK")
 
 if dups == 0:
-    print("✓ No duplicate district-month rows")
+    print(" No duplicate district-month rows")
 else:
-    print(f"✗ Found {dups} duplicate rows")
+    print(f" Found {dups} duplicate rows")
 
 
-print("\n────────────────────────────────────────")
+print()
 print("TEMPORAL CONTINUITY")
 
 gaps = []
@@ -70,14 +68,14 @@ for district in sorted(df["District"].unique()):
         gaps.append((district, len(missing)))
 
 if len(gaps) == 0:
-    print("✓ No temporal gaps")
+    print(" No temporal gaps")
 else:
-    print("✗ Temporal gaps detected")
+    print(" Temporal gaps detected")
     for g in gaps[:10]:
         print(g)
 
 
-print("\n────────────────────────────────────────")
+print()
 print("FEATURE MISSINGNESS")
 
 miss_table = []
@@ -107,7 +105,7 @@ miss_df.to_csv(
 )
 
 
-print("\n────────────────────────────────────────")
+print()
 print("DISTRICT COVERAGE")
 
 coverage = df.groupby("District").size()
@@ -115,7 +113,7 @@ coverage = df.groupby("District").size()
 print(coverage)
 
 
-print("\n────────────────────────────────────────")
+print()
 print("RANGE VALIDATION")
 
 checks = {
@@ -137,9 +135,9 @@ for col, (low, high) in checks.items():
     bad = ((vals < low) | (vals > high)).sum()
 
     if bad == 0:
-        print(f"✓ {col}: OK")
+        print(f" {col}: OK")
     else:
-        print(f"✗ {col}: {bad} invalid rows")
+        print(f" {col}: {bad} invalid rows")
 
 
 summary_path = os.path.join(
@@ -154,6 +152,5 @@ with open(summary_path, "w", encoding="utf-8") as f:
     f.write(f"Duplicates: {dups}\n")
     f.write(f"Temporal gaps: {len(gaps)}\n")
 
-print("\n════════════════════════════════════════════")
-print("✓ POST-MERGE QC COMPLETE")
-print("════════════════════════════════════════════")
+print("\n")
+print(" POST-MERGE QC COMPLETE")

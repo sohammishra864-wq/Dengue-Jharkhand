@@ -11,4 +11,4 @@ df["Humidity_pct"] = (
 
 df.to_csv(path, index=False)
 
-print("✓ Replaced humidity placeholder -1 with NaN")
+print(" Replaced humidity placeholder -1 with NaN")

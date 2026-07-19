@@ -14,11 +14,8 @@ OUTPUT = os.path.join(
     "master_features_engineered.csv"
 )
 
-print("\n════════════════════════════════════════════")
+print("\n")
 print(" FEATURE ENGINEERING")
-print("════════════════════════════════════════════")
-
-
 df = pd.read_csv(INPUT)
 
 print(f"\nLoaded: {df.shape}")
@@ -51,7 +48,7 @@ lag_config = {
 for feature, lags in lag_config.items():
 
     if feature not in df.columns:
-        print(f"  ⚠ Missing feature: {feature}")
+        print(f" Missing feature: {feature}")
         continue
 
     for lag in lags:
@@ -63,7 +60,7 @@ for feature, lags in lag_config.items():
             .shift(lag)
         )
 
-        print(f"  ✓ {new_col}")
+        print(f" {new_col}")
 
 
 print("\nCreating rolling window features...")
@@ -95,7 +92,7 @@ for feature, windows in rolling_config.items():
             )
         )
 
-        print(f"  ✓ {col}")
+        print(f" {col}")
 
 
 print("\nCreating rolling variability features...")
@@ -118,7 +115,7 @@ for feature in ["Rainfall_mm", "LST_C"]:
         )
     )
 
-    print(f"  ✓ {col}")
+    print(f" {col}")
 
 
 print("\nCreating seasonal features...")
@@ -149,7 +146,7 @@ df["summer_flag"] = (
     .astype(int)
 )
 
-print("  ✓ Seasonal encodings")
+print(" Seasonal encodings")
 
 
 print("\nCreating anomaly features...")
@@ -181,7 +178,7 @@ for feature in anomaly_features:
         (df[feature] - mean) / std
     )
 
-    print(f"  ✓ {col}")
+    print(f" {col}")
 
 
 print("\nCreating persistence features...")
@@ -216,8 +213,8 @@ df["heat_streak_3"] = (
     )
 )
 
-print("  ✓ wet_streak_3")
-print("  ✓ heat_streak_3")
+print(" wet_streak_3")
+print(" heat_streak_3")
 
 
 print("\nMissingness summary:")
@@ -233,12 +230,10 @@ print(missing.head(20))
 
 df.to_csv(OUTPUT, index=False)
 
-print("\n════════════════════════════════════════════")
+print("\n")
 print(" FEATURE ENGINEERING COMPLETE")
-print("════════════════════════════════════════════")
-
 print(f"\nSaved:")
-print(f"  {OUTPUT}")
+print(f"{OUTPUT}")
 
 print(f"\nFinal shape:")
 print(df.shape)
