@@ -1,0 +1,7 @@
+Variable,MK_tau,MK_p,Significance,Direction,Sens_slope_per_year
+LST_C,-0.011,1.0,ns,no trend,-0.00322
+LST_Night_C,0.1429,0.5112,ns,no trend,0.02165
+Rainfall_mm,0.1209,0.5841,ns,no trend,0.85346
+NDVI,0.4725,0.0215,*,increasing,0.00399
+SoilMoist_m3m3,0.2857,0.3865,ns,no trend,0.00241
+Humidity_pct,0.2747,0.1889,ns,no trend,0.18809

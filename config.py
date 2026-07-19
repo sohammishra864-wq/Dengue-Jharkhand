@@ -1,0 +1,7 @@
+RAW_DATA_DIR = "data/raw"
+OUTPUT_DIR = "outputs"
+
+START_YEAR = 2010
+END_YEAR = 2023
+
+DISTRICTS = [...]

@@ -1,0 +1,155 @@
+Dataset,Raw,Canonical,Status
+satellite,Bokaro,Bokaro,OK
+satellite,Chatra,Chatra,OK
+satellite,Deoghar,Deoghar,OK
+satellite,Dhanbad,Dhanbad,OK
+satellite,Dumka,Dumka,OK
+satellite,Garhwa,Garhwa,OK
+satellite,Giridih,Giridih,OK
+satellite,Godda,Godda,OK
+satellite,Gumla,Gumla,OK
+satellite,Hazaribag,Hazaribagh,REMAP → Hazaribagh
+satellite,Jamtara,Jamtara,OK
+satellite,Koderma,Koderma,OK
+satellite,Latehar,Latehar,OK
+satellite,Lohardaga,Lohardaga,OK
+satellite,Pakur,Pakur,OK
+satellite,Palamu,Palamu,OK
+satellite,Pashchim Singhbhum,West Singhbhum,REMAP → West Singhbhum
+satellite,Purba Singhbhum,East Singhbhum,REMAP → East Singhbhum
+satellite,Ranchi,Ranchi,OK
+satellite,Sahibganj,Sahibganj,OK
+satellite,Saraikela Kharsawan,Seraikela Kharsawan,REMAP → Seraikela Kharsawan
+satellite,Simdega,Simdega,OK
+night_lst,Bokaro,Bokaro,OK
+night_lst,Chatra,Chatra,OK
+night_lst,Deoghar,Deoghar,OK
+night_lst,Dhanbad,Dhanbad,OK
+night_lst,Dumka,Dumka,OK
+night_lst,Garhwa,Garhwa,OK
+night_lst,Giridih,Giridih,OK
+night_lst,Godda,Godda,OK
+night_lst,Gumla,Gumla,OK
+night_lst,Hazaribag,Hazaribagh,REMAP → Hazaribagh
+night_lst,Jamtara,Jamtara,OK
+night_lst,Koderma,Koderma,OK
+night_lst,Latehar,Latehar,OK
+night_lst,Lohardaga,Lohardaga,OK
+night_lst,Pakur,Pakur,OK
+night_lst,Palamu,Palamu,OK
+night_lst,Pashchim Singhbhum,West Singhbhum,REMAP → West Singhbhum
+night_lst,Purba Singhbhum,East Singhbhum,REMAP → East Singhbhum
+night_lst,Ranchi,Ranchi,OK
+night_lst,Sahibganj,Sahibganj,OK
+night_lst,Seraikela_Kharsawan,Seraikela Kharsawan,REMAP → Seraikela Kharsawan
+night_lst,Simdega,Simdega,OK
+jrc_monthly,Bokaro,Bokaro,OK
+jrc_monthly,Chatra,Chatra,OK
+jrc_monthly,Deoghar,Deoghar,OK
+jrc_monthly,Dhanbad,Dhanbad,OK
+jrc_monthly,Dumka,Dumka,OK
+jrc_monthly,Garhwa,Garhwa,OK
+jrc_monthly,Giridih,Giridih,OK
+jrc_monthly,Godda,Godda,OK
+jrc_monthly,Gumla,Gumla,OK
+jrc_monthly,Hazaribag,Hazaribagh,REMAP → Hazaribagh
+jrc_monthly,Jamtara,Jamtara,OK
+jrc_monthly,Koderma,Koderma,OK
+jrc_monthly,Latehar,Latehar,OK
+jrc_monthly,Lohardaga,Lohardaga,OK
+jrc_monthly,Pakur,Pakur,OK
+jrc_monthly,Palamu,Palamu,OK
+jrc_monthly,Pashchim Singhbhum,West Singhbhum,REMAP → West Singhbhum
+jrc_monthly,Purba Singhbhum,East Singhbhum,REMAP → East Singhbhum
+jrc_monthly,Ranchi,Ranchi,OK
+jrc_monthly,Sahibganj,Sahibganj,OK
+jrc_monthly,Seraikela_Kharsawan,Seraikela Kharsawan,REMAP → Seraikela Kharsawan
+jrc_monthly,Simdega,Simdega,OK
+jrc_static,Bokaro,Bokaro,OK
+jrc_static,Chatra,Chatra,OK
+jrc_static,Deoghar,Deoghar,OK
+jrc_static,Dhanbad,Dhanbad,OK
+jrc_static,Dumka,Dumka,OK
+jrc_static,Garhwa,Garhwa,OK
+jrc_static,Giridih,Giridih,OK
+jrc_static,Godda,Godda,OK
+jrc_static,Gumla,Gumla,OK
+jrc_static,Hazaribag,Hazaribagh,REMAP → Hazaribagh
+jrc_static,Jamtara,Jamtara,OK
+jrc_static,Koderma,Koderma,OK
+jrc_static,Latehar,Latehar,OK
+jrc_static,Lohardaga,Lohardaga,OK
+jrc_static,Pakur,Pakur,OK
+jrc_static,Palamu,Palamu,OK
+jrc_static,Pashchim Singhbhum,West Singhbhum,REMAP → West Singhbhum
+jrc_static,Purba Singhbhum,East Singhbhum,REMAP → East Singhbhum
+jrc_static,Ranchi,Ranchi,OK
+jrc_static,Sahibganj,Sahibganj,OK
+jrc_static,Seraikela_Kharsawan,Seraikela Kharsawan,REMAP → Seraikela Kharsawan
+jrc_static,Simdega,Simdega,OK
+smap,Bokaro,Bokaro,OK
+smap,Chatra,Chatra,OK
+smap,Deoghar,Deoghar,OK
+smap,Dhanbad,Dhanbad,OK
+smap,Dumka,Dumka,OK
+smap,Garhwa,Garhwa,OK
+smap,Giridih,Giridih,OK
+smap,Godda,Godda,OK
+smap,Gumla,Gumla,OK
+smap,Hazaribag,Hazaribagh,REMAP → Hazaribagh
+smap,Jamtara,Jamtara,OK
+smap,Koderma,Koderma,OK
+smap,Latehar,Latehar,OK
+smap,Lohardaga,Lohardaga,OK
+smap,Pakur,Pakur,OK
+smap,Palamu,Palamu,OK
+smap,Pashchim Singhbhum,West Singhbhum,REMAP → West Singhbhum
+smap,Purba Singhbhum,East Singhbhum,REMAP → East Singhbhum
+smap,Ranchi,Ranchi,OK
+smap,Sahibganj,Sahibganj,OK
+smap,Seraikela_Kharsawan,Seraikela Kharsawan,REMAP → Seraikela Kharsawan
+smap,Simdega,Simdega,OK
+nightlights,Bokaro,Bokaro,OK
+nightlights,Chatra,Chatra,OK
+nightlights,Deoghar,Deoghar,OK
+nightlights,Dhanbad,Dhanbad,OK
+nightlights,Dumka,Dumka,OK
+nightlights,Garhwa,Garhwa,OK
+nightlights,Giridih,Giridih,OK
+nightlights,Godda,Godda,OK
+nightlights,Gumla,Gumla,OK
+nightlights,Hazaribag,Hazaribagh,REMAP → Hazaribagh
+nightlights,Jamtara,Jamtara,OK
+nightlights,Koderma,Koderma,OK
+nightlights,Latehar,Latehar,OK
+nightlights,Lohardaga,Lohardaga,OK
+nightlights,Pakur,Pakur,OK
+nightlights,Palamu,Palamu,OK
+nightlights,Pashchim Singhbhum,West Singhbhum,REMAP → West Singhbhum
+nightlights,Purba Singhbhum,East Singhbhum,REMAP → East Singhbhum
+nightlights,Ranchi,Ranchi,OK
+nightlights,Sahibganj,Sahibganj,OK
+nightlights,Seraikela_Kharsawan,Seraikela Kharsawan,REMAP → Seraikela Kharsawan
+nightlights,Simdega,Simdega,OK
+static,Bokaro,Bokaro,OK
+static,Chatra,Chatra,OK
+static,Deoghar,Deoghar,OK
+static,Dhanbad,Dhanbad,OK
+static,Dumka,Dumka,OK
+static,Garhwa,Garhwa,OK
+static,Giridih,Giridih,OK
+static,Godda,Godda,OK
+static,Gumla,Gumla,OK
+static,Hazaribag,Hazaribagh,REMAP → Hazaribagh
+static,Jamtara,Jamtara,OK
+static,Koderma,Koderma,OK
+static,Latehar,Latehar,OK
+static,Lohardaga,Lohardaga,OK
+static,Pakur,Pakur,OK
+static,Palamu,Palamu,OK
+static,Pashchim Singhbhum,West Singhbhum,REMAP → West Singhbhum
+static,Purba Singhbhum,East Singhbhum,REMAP → East Singhbhum
+static,Ranchi,Ranchi,OK
+static,Sahibganj,Sahibganj,OK
+static,Seraikela_Kharsawan,Seraikela Kharsawan,REMAP → Seraikela Kharsawan
+static,Simdega,Simdega,OK

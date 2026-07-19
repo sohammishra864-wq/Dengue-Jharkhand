@@ -1,0 +1,3 @@
+Dataset,Column,Issue,Count,Values
+smap,SoilMoist_m3m3,sentinel,418,-999/-9999
+nightlights,Nightlights,sentinel,66,-999/-9999

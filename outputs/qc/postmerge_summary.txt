@@ -1,0 +1,4 @@
+POST-MERGE QC COMPLETE
+Shape: (3696, 33)
+Duplicates: 0
+Temporal gaps: 0

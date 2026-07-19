@@ -1,0 +1,8 @@
+n_districts,22
+year_range,2010–2023
+n_rows,3696
+n_columns,64
+n_figures,12
+n_csv_outputs,7
+climate_cols,"LST_C, Rainfall_mm, NDVI, Humidity_pct, LST_Night_C, SoilMoist_m3m3, Water_pct_monthly, Nightlights, Elevation_m, Forest_pct, Cropland_pct"
+generated_at,2026-06-01 16:19
